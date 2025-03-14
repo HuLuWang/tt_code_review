@@ -1,0 +1,15 @@
+syntax = "v1"
+
+type Request {
+	Name string `path:"name,options=you|me"`
+}
+
+type Response {
+	Message string `json:"message"`
+}
+
+service tt_code_review-api {
+	@handler Tt_code_reviewHandler
+	get /from/:name (Request) returns (Response)
+}
+
